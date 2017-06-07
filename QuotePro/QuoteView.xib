@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QuoteBuilderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l56-LX-xom">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V15-iQ-hS6">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="V15-iQ-hS6" secondAttribute="bottom" id="5zS-Oa-K7p"/>
+                        <constraint firstAttribute="trailing" secondItem="V15-iQ-hS6" secondAttribute="trailing" id="DNT-Ms-3Sy"/>
+                        <constraint firstItem="V15-iQ-hS6" firstAttribute="leading" secondItem="l56-LX-xom" secondAttribute="leading" id="lzq-ih-Jjy"/>
+                        <constraint firstItem="V15-iQ-hS6" firstAttribute="top" secondItem="l56-LX-xom" secondAttribute="top" id="qFh-gW-Mht"/>
+                    </constraints>
+                </view>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIo-qX-KfD">
+                    <rect key="frame" x="0.0" y="269" width="375" height="128"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vNB-xk-vvB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NE-p6-QXj">
+                                <rect key="frame" x="8" y="8" width="359" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0NE-p6-QXj" firstAttribute="top" secondItem="vNB-xk-vvB" secondAttribute="top" constant="8" id="Ma2-1D-JSm"/>
+                            <constraint firstItem="0NE-p6-QXj" firstAttribute="leading" secondItem="vNB-xk-vvB" secondAttribute="leading" constant="8" id="cgs-5f-v6j"/>
+                            <constraint firstAttribute="trailing" secondItem="0NE-p6-QXj" secondAttribute="trailing" constant="8" id="lnY-88-hx5"/>
+                        </constraints>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="Xaj-Et-TeG"/>
+                    </constraints>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPr-gU-sgp">
+                    <rect key="frame" x="-15" y="599" width="390" height="80"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lry-aE-CEw">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fNi-Yi-YHM">
+                                <rect key="frame" x="105" y="0.0" width="180" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snq-xC-sSW" userLabel="quote">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="alF-Gf-wz2"/>
+                                            <constraint firstAttribute="width" constant="60" id="vYn-W3-eJR"/>
+                                        </constraints>
+                                        <state key="normal" title="quote"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q72-fc-dhn" userLabel="image" customClass="CustomButton" customModule="QuotePro" customModuleProvider="target">
+                                        <rect key="frame" x="60" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="VRt-XH-hIO"/>
+                                            <constraint firstAttribute="height" constant="60" id="yzL-bx-FdC"/>
+                                        </constraints>
+                                        <state key="normal" image="camera"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.99484944340000003" green="0.17360065820000001" blue="0.16465045410000001" alpha="0.72816780820000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6g-K5-Fks" userLabel="save">
+                                        <rect key="frame" x="120" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="26g-o1-RiT"/>
+                                            <constraint firstAttribute="height" constant="60" id="5Sx-zW-Jha"/>
+                                        </constraints>
+                                        <state key="normal" title="save"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2eh-R8-hFd"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fNi-Yi-YHM" secondAttribute="bottom" constant="20" id="FrC-2a-dpo"/>
+                            <constraint firstItem="fNi-Yi-YHM" firstAttribute="centerX" secondItem="Lry-aE-CEw" secondAttribute="centerX" id="wiG-bd-9Y8"/>
+                        </constraints>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="caG-Lq-YkW"/>
+                    </constraints>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="l56-LX-xom" secondAttribute="bottom" id="5CC-VN-hjX"/>
+                <constraint firstItem="l56-LX-xom" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8Zy-Pf-QW0"/>
+                <constraint firstItem="dIo-qX-KfD" firstAttribute="trailing" secondItem="kPr-gU-sgp" secondAttribute="trailing" id="8h8-XZ-16l"/>
+                <constraint firstAttribute="trailing" secondItem="l56-LX-xom" secondAttribute="trailing" id="FPN-2M-o1a"/>
+                <constraint firstItem="kPr-gU-sgp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-15" id="K7I-tQ-d0S"/>
+                <constraint firstAttribute="bottom" secondItem="kPr-gU-sgp" secondAttribute="bottom" constant="-12" id="Sl2-MA-Ulf"/>
+                <constraint firstItem="dIo-qX-KfD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aGc-0G-WoE"/>
+                <constraint firstItem="dIo-qX-KfD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vgY-K9-bi6"/>
+                <constraint firstAttribute="trailing" secondItem="dIo-qX-KfD" secondAttribute="trailing" id="wyr-an-LJw"/>
+                <constraint firstItem="l56-LX-xom" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yUd-cf-Z1J"/>
+            </constraints>
+            <point key="canvasLocation" x="73.5" y="59.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camera" width="30" height="24"/>
+    </resources>
+</document>
