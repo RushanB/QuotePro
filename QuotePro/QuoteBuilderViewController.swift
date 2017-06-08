@@ -19,7 +19,7 @@ class QuoteBuilderViewController: UIViewController {
     
     var delegate: QuoteBuilderDelegate!
     var quoteView: QuoteView!
-    var finalQuote: FinalQuote?
+    var finalQuote: FinalQuote = FinalQuote()
     
     //MARK: View
     override func viewDidLoad() {
@@ -30,9 +30,9 @@ class QuoteBuilderViewController: UIViewController {
         quoteView?.frame.size = quoteViewFrame.frame.size
         quoteViewFrame.addSubview(quoteView!)
         
-        if(self.finalQuote != nil){
-            addView()
-        }
+        
+        
+        addView()
         
     }
     
@@ -45,9 +45,9 @@ class QuoteBuilderViewController: UIViewController {
     //MARK: Helper methods
     func addView(){
         //if not nil
-        if((finalQuote?.quote != nil) && (finalQuote?.photo != nil)){
+        if((finalQuote.quote != nil) && (finalQuote.photo != nil)){
             DispatchQueue.main.async {
-                self.quoteView.viewWithQuote(finalQuote: self.finalQuote!)
+                self.quoteView.viewWithQuote(finalQuote: self.finalQuote)
             }
         }
     }
@@ -57,7 +57,7 @@ class QuoteBuilderViewController: UIViewController {
     @IBAction func randQuoteTapped(_ sender: UIButton) {
         let randQuote = FetchQuote()
         randQuote.fetchQuote{(quote: Quote) in
-            self.finalQuote?.quote = quote
+            self.finalQuote.quote = quote
             self.addView()
         }
         
@@ -67,7 +67,7 @@ class QuoteBuilderViewController: UIViewController {
         let randPhoto = FetchPhoto()
         randPhoto.fetchPhoto{(photo: Photo) in
             
-            self.finalQuote?.photo = photo
+            self.finalQuote.photo = photo
             self.addView()
         }
     }
@@ -87,7 +87,7 @@ class QuoteBuilderViewController: UIViewController {
     
     //nav bar
     @IBAction func saveTapped(_ sender: Any) {
-        delegate.saveQuote(saveQuote: self.finalQuote!)  //call delegate save function
+        delegate.saveQuote(saveQuote: self.finalQuote)  //call delegate save function
         
         navigationController!.popViewController(animated: true)
     }

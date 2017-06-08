@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V0K-l4-d87">
-                                <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="130" id="WLS-ch-Vbf" customClass="HomeTableViewCell" customModule="QuotePro" customModuleProvider="target">
@@ -70,7 +70,7 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="V0K-l4-d87" secondAttribute="bottom" id="CI0-as-Rnf"/>
                             <constraint firstItem="V0K-l4-d87" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GYs-87-3og"/>
-                            <constraint firstItem="V0K-l4-d87" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="e3K-5g-TOo"/>
+                            <constraint firstItem="V0K-l4-d87" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="e3K-5g-TOo"/>
                             <constraint firstAttribute="trailing" secondItem="V0K-l4-d87" secondAttribute="trailing" id="vdV-dj-WP9"/>
                         </constraints>
                     </view>
@@ -79,10 +79,12 @@
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="RsC-Fh-zlC"/>
-                                <segue destination="sjd-Mw-hm7" kind="show" identifier="QuoteBuilder" action="showDetailViewController:sender:" id="VB3-kg-7Tp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="sjd-Mw-hm7" kind="show" identifier="QuoteBuilder" id="XbM-t5-j3f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,12 +125,9 @@
                                     <action selector="shareTapped:" destination="sjd-Mw-hm7" eventType="touchUpInside" id="erI-F9-TBk"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axd-VF-uNg" userLabel="quoteViewFrame">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Axd-VF-uNg" userLabel="quoteViewFrame">
                                 <rect key="frame" x="16" y="81" width="343" height="357"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Axd-VF-uNg" secondAttribute="height" multiplier="49:51" id="b5d-Qh-q7P"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFf-Yf-xXL">
                                 <rect key="frame" x="220" y="476" width="120" height="30"/>
@@ -149,11 +148,14 @@
                             <constraint firstItem="Cpd-6E-7SW" firstAttribute="top" secondItem="yoM-wE-Amg" secondAttribute="bottom" constant="65" id="0eF-B8-d7Z"/>
                             <constraint firstItem="tFf-Yf-xXL" firstAttribute="leading" secondItem="IXQ-IT-YYr" secondAttribute="trailing" constant="61" id="3jF-ID-oJp"/>
                             <constraint firstItem="yoM-wE-Amg" firstAttribute="top" secondItem="IXQ-IT-YYr" secondAttribute="bottom" constant="66" id="7ZS-eD-en7"/>
+                            <constraint firstItem="Axd-VF-uNg" firstAttribute="centerX" secondItem="Mr8-jg-p39" secondAttribute="centerX" id="C9t-hT-sum"/>
+                            <constraint firstItem="Cpd-6E-7SW" firstAttribute="top" secondItem="Axd-VF-uNg" secondAttribute="bottom" constant="229" id="G5c-6N-zw3"/>
                             <constraint firstItem="Axd-VF-uNg" firstAttribute="leading" secondItem="Mr8-jg-p39" secondAttribute="leading" constant="16" id="Wcz-r3-EtA"/>
                             <constraint firstItem="yoM-wE-Amg" firstAttribute="top" secondItem="tFf-Yf-xXL" secondAttribute="bottom" constant="66" id="XSD-YF-szP"/>
                             <constraint firstAttribute="trailing" secondItem="Axd-VF-uNg" secondAttribute="trailing" constant="16" id="dk9-7j-sdc"/>
                             <constraint firstItem="IXQ-IT-YYr" firstAttribute="leading" secondItem="Mr8-jg-p39" secondAttribute="leading" constant="39" id="eKQ-du-3Ut"/>
                             <constraint firstAttribute="trailing" secondItem="yoM-wE-Amg" secondAttribute="trailing" constant="137" id="fJl-xd-jTK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Axd-VF-uNg" secondAttribute="trailing" id="ifq-cz-eTo"/>
                             <constraint firstItem="Axd-VF-uNg" firstAttribute="top" secondItem="Kf8-5L-1Id" secondAttribute="bottom" constant="17" id="kZY-il-UAe"/>
                             <constraint firstItem="yoM-wE-Amg" firstAttribute="leading" secondItem="Mr8-jg-p39" secondAttribute="leading" constant="137" id="p2E-qb-iMQ"/>
                         </constraints>

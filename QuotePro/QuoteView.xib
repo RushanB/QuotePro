@@ -11,37 +11,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="404" height="462"/>
+        <view clipsSubviews="YES" contentMode="scaleAspectFit" id="iN0-l3-epB" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V15-iQ-hS6" userLabel="Photo View">
-                    <rect key="frame" x="0.0" y="0.0" width="404" height="462"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V15-iQ-hS6" userLabel="Photo View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="quoteLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Odi-C3-EKs">
-                    <rect key="frame" x="20" y="52" width="359" height="199"/>
+                    <rect key="frame" x="16" y="105" width="343" height="178"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="authorLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NE-p6-QXj">
-                    <rect key="frame" x="23" y="301" width="359" height="30"/>
+                    <rect key="frame" x="16" y="291" width="343" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <constraints>
+                <constraint firstItem="V15-iQ-hS6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T0e-A6-iyF"/>
+                <constraint firstAttribute="bottom" secondItem="V15-iQ-hS6" secondAttribute="bottom" id="U8m-dI-xug"/>
+                <constraint firstAttribute="trailing" secondItem="V15-iQ-hS6" secondAttribute="trailing" id="fj4-Kf-nAa"/>
+                <constraint firstItem="V15-iQ-hS6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tPg-am-39w"/>
+            </constraints>
             <connections>
                 <outlet property="authorLabel" destination="0NE-p6-QXj" id="Z5j-Kp-jTw"/>
                 <outlet property="photoView" destination="V15-iQ-hS6" id="2s6-9S-ASn"/>
                 <outlet property="quoteLabel" destination="Odi-C3-EKs" id="EnR-XB-y0e"/>
             </connections>
-            <point key="canvasLocation" x="42" y="215"/>
+            <point key="canvasLocation" x="41.5" y="214.5"/>
         </view>
     </objects>
 </document>
