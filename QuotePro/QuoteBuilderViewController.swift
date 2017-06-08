@@ -7,21 +7,32 @@
 //
 
 import UIKit
+//assign protocol method
+protocol QuoteBuilderDelegate{
+    func saveQuote(saveQuote: FinalQuote)
+}
 
 class QuoteBuilderViewController: UIViewController {
     
+    //MARK: Properties
+    @IBOutlet weak var quoteViewFrame: UIView!
     
+    var delegate: QuoteBuilderDelegate!
+    var quoteView: QuoteView!
+    var finalQuote: FinalQuote?
     
-    
-    var quoteView: QuoteView?
-    
-    var quote:Quote?
-    var photo:Photo?
-    var image:UIImage?
-
-    
+    //MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //QuoteView xib
+        quoteView = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: nil)?.first! as? QuoteView
+        quoteView?.frame.size = quoteViewFrame.frame.size
+        quoteViewFrame.addSubview(quoteView!)
+        
+        if(self.finalQuote != nil){
+            addView()
+        }
         
     }
     
@@ -31,15 +42,54 @@ class QuoteBuilderViewController: UIViewController {
     }
     
     
+    //MARK: Helper methods
+    func addView(){
+        //if not nil
+        if((finalQuote?.quote != nil) && (finalQuote?.photo != nil)){
+            DispatchQueue.main.async {
+                self.quoteView.viewWithQuote(finalQuote: self.finalQuote!)
+            }
+        }
+    }
     
-    static func snapshot(view: UIView) -> UIImage? {
+    
+    //MARK: Actions
+    @IBAction func randQuoteTapped(_ sender: UIButton) {
+        let randQuote = FetchQuote()
+        randQuote.fetchQuote{(quote: Quote) in
+            self.finalQuote?.quote = quote
+            self.addView()
+        }
         
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        
+    }
+    
+    @IBAction func randPhotoTapped(_ sender: UIButton) {
+        let randPhoto = FetchPhoto()
+        randPhoto.fetchPhoto{(photo: Photo) in
+            
+            self.finalQuote?.photo = photo
+            self.addView()
+        }
+    }
+    
+    @IBAction func shareTapped(_ sender: UIButton) {
+        //animate
+        UIGraphicsBeginImageContextWithOptions(quoteView.bounds.size, true, 0)
+        quoteView.drawHierarchy(in: quoteView.bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        
+        //set activity view controller
+        let imagesToShare = [image] //photo arrays
+        let activityViewController = UIActivityViewController(activityItems: imagesToShare, applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    //nav bar
+    @IBAction func saveTapped(_ sender: Any) {
+        delegate.saveQuote(saveQuote: self.finalQuote!)  //call delegate save function
+        
+        navigationController!.popViewController(animated: true)
     }
     
 }

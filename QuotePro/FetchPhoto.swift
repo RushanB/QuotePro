@@ -11,13 +11,16 @@ import UIKit
 
 class FetchPhoto {
     
-     func fetchImage(completion:@escaping(Photo?)->()) {
+     func fetchPhoto(completionHandler: @escaping (Photo) -> Void) {
         
-        let url = URL(string: "http://lorempixel.com/200/300")
+        let url = URL(string: "http://lorempixel.com/300/300")
         let request = URLRequest(url: url!)
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
-        let dataTask = session.dataTask(with: request){(data: Data?, response: URLResponse?, error: Error?) in
+        let dataTask = session.dataTask(with: request){
+            
+            (data: Data?, response: URLResponse?, error: Error?) in
+            
             guard let data = data else{
                 print("no data returned from \(String(describing: error?.localizedDescription))")
                 return
@@ -31,7 +34,7 @@ class FetchPhoto {
             let newPhoto = Photo()
             newPhoto.photo = UIImage(data: data)!
             
-            completion(newPhoto)
+            completionHandler(newPhoto)
         }
         
         dataTask.resume()

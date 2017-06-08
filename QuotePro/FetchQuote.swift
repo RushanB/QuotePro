@@ -9,11 +9,11 @@
 import UIKit
 import Foundation
 
-class FetchQuote: NSObject {
+class FetchQuote{
     
-    func fetchQuote(completion: @escaping (Quote) -> ()){
+    func fetchQuote(completionHandler: @escaping (Quote) -> Void){
         
-        let url = URL(string: "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
+        let url = URL(string: "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en")
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let dataTask = session.dataTask(with: url!, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
             
@@ -44,7 +44,7 @@ class FetchQuote: NSObject {
             newQuote.quoteAuthor = json["quoteAuthor"]!
             newQuote.quoteText = json["quoteText"]!
         
-            completion(newQuote)
+            completionHandler(newQuote)
         })
         dataTask.resume()
     }

@@ -10,9 +10,8 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
 
-    
+    @IBOutlet weak var quoteImageView: UIImageView!
     @IBOutlet weak var quoteLabel: UILabel!
-    
     @IBOutlet weak var authorLabel: UILabel!
     
     var finalQuote: FinalQuote!{
@@ -23,6 +22,8 @@ class HomeTableViewCell: UITableViewCell {
     
     
     func cellWithQuote(){
+        quoteImageView.image = finalQuote.photo.photo
+        
         quoteLabel.shadowColor = UIColor.lightGray
         quoteLabel.text = String(format: "%@", finalQuote.quote.quoteText!)
         

@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-    
+    //deletgate function
     func saveQuote(saveQuote: FinalQuote){
         arrayOfQuotes.append(saveQuote)
     }

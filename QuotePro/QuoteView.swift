@@ -7,20 +7,25 @@
 //
 
 import UIKit
+import Foundation
 
 class QuoteView: UIView {
+
+    @IBOutlet weak var photoView: UIImageView!
     
-    @IBOutlet weak var imageButton: UIButton!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var quoteLabel: UILabel!
     
     //helper method to add quote to the view
-    func viewWithQuote(quote:Quote) -> Void{
-        label.text = FinalQuote.quote.quoteText
-        label.shadowColor = UIColor.lightGray
+    func viewWithQuote(finalQuote:FinalQuote) -> Void{
         
-        label.text = FinalQuote.quote.quoteAuthor
-        label.shadowColor = UIColor.lightGray
+        photoView.image = finalQuote.photo.photo
+        
+        quoteLabel.text = finalQuote.quote.quoteText
+        quoteLabel.shadowColor = UIColor.lightGray
+        
+        authorLabel.text = finalQuote.quote.quoteAuthor
+        authorLabel.shadowColor = UIColor.lightGray
     }
     
 }
